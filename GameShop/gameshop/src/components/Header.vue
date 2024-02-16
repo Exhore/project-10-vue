@@ -8,7 +8,7 @@
                 <a class="flex-none text-xl font-semibold dark:text-white" href="/" aria-label="Brand"><img
                         src="../assets/logo-gameshop.png" width="100px" height="100px" alt="logo"></a>
                 <div class="md:hidden">
-                    <button type="button"
+                    <button type="modal-button"
                         class="hs-collapse-toggle w-8 h-8 flex justify-center items-center text-sm font-semibold rounded-full border border-gray-200 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                         data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation"
                         aria-label="Toggle navigation">
@@ -62,7 +62,7 @@
                     </div>
 
 
-                    <!-- DROPDOWN MENU IN JQUERY -->
+                    <!-- END DROPDOWN MENU IN JQUERY -->
 
                     <!--  -->
                     <a class="flex items-center gap-x-2 font-medium text-gray-500 hover:text-blue-600 md:border-s md:border-gray-300 md:my-6 md:ps-6 dark:border-gray-700 dark:text-gray-400 dark:hover:text-blue-500"
@@ -75,42 +75,42 @@
                             <circle cx="12" cy="7" r="4" />
                         </svg>
                         <!-- login icon -->
-                        Log in
-                    </a>
-                    <!-- shopping cart -->
-                    <button type="button"
-                        class="py-3 px-4 flex justify-center items-center size-[10px] text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="m5 11 4-7" />
-                            <path d="m19 11-4-7" />
-                            <path d="M2 11h20" />
-                            <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4" />
-                            <path d="m9 11 1 9" />
-                            <path d="M4.5 15.5h15" />
-                            <path d="m15 11-1 9" />
-                        </svg>
-                    </button>
-                    <!-- dark mode button -->
-                    <button type="button"
-                        class="hs-dark-mode-active:block hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
-                        data-hs-theme-click-value="light">
-                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="4" />
-                            <path d="M12 8a2 2 0 1 0 4 4" />
-                            <path d="M12 2v2" />
-                            <path d="M12 20v2" />
-                            <path d="m4.93 4.93 1.41 1.41" />
-                            <path d="m17.66 17.66 1.41 1.41" />
-                            <path d="M2 12h2" />
-                            <path d="M20 12h2" />
-                            <path d="m6.34 17.66-1.41 1.41" />
-                            <path d="m19.07 4.93-1.41 1.41" />
-                        </svg>
-                    </button>
+                            <logIn :isOpen="isModalOpen" />
+                        </a>
+                        <!-- shopping cart -->
+                        <button type="modal-button"
+                            class="py-3 px-4 flex justify-center items-center size-[10px] text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m5 11 4-7" />
+                                <path d="m19 11-4-7" />
+                                <path d="M2 11h20" />
+                                <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4" />
+                                <path d="m9 11 1 9" />
+                                <path d="M4.5 15.5h15" />
+                                <path d="m15 11-1 9" />
+                            </svg>
+                        </button>
+                        <!-- dark mode button -->
+                        <button type="modal-button"
+                            class="hs-dark-mode-active:block hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
+                            data-hs-theme-click-value="light">
+                            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="4" />
+                                <path d="M12 8a2 2 0 1 0 4 4" />
+                                <path d="M12 2v2" />
+                                <path d="M12 20v2" />
+                                <path d="m4.93 4.93 1.41 1.41" />
+                                <path d="m17.66 17.66 1.41 1.41" />
+                                <path d="M2 12h2" />
+                                <path d="M20 12h2" />
+                                <path d="m6.34 17.66-1.41 1.41" />
+                                <path d="m19.07 4.93-1.41 1.41" />
+                            </svg>
+                        </button>
                 </div>
             </div>
         </nav>
@@ -120,10 +120,20 @@
 
 <script>
 import $ from 'jquery';
+import logIn from './LogIn.vue';
+
 export default {
+    components: {
+        logIn
+    },
+    data() {
+        return {
+            isModalOpen: true
+        }
+    },
     name: 'Header',
     methods: {
-        // Aquí se define la función dropDownMenu correctamente
+        // this is the dropdown menu in jquery
         dropDownMenu() {
             $('.dropdown-toggle').click(function () {
                 $(this).next('.dropdown').slideToggle();
@@ -133,7 +143,8 @@ export default {
                 var target = e.target;
                 if (!$(target).is('.dropdown-toggle') && !$(target).parents().is('.dropdown-toggle')) { $('.dropdown').slideUp(); }
             });
-        }
+        },
+        // button to open the sign-in modal
     },
     mounted() {
         this.dropDownMenu();

@@ -1,20 +1,20 @@
 <template>
     <Header></Header>
-    <SignForm></SignForm>
     <FirstContainer></FirstContainer>
+    <LogIn></LogIn>
 </template>
 
 <script>
 import Header from './components/Header.vue'
-import SignForm from './components/SignForm.vue'
 import FirstContainer from './components/FirstContainer.vue'
+import LogIn from './components/LogIn.vue'
 
 export default {
     name: "app",
     components: {
         Header,
-        SignForm,
-        FirstContainer
+        FirstContainer,
+        LogIn
     }
 }
 

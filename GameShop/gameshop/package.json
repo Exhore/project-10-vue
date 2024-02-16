@@ -9,12 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@preline/overlay": "^2.0.2",
     "@preline/tabs": "^2.0.2",
     "jquery": "^3.7.1",
     "preline": "^2.0.3",
     "vue": "^3.4.15"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "@vitejs/plugin-vue": "^5.0.3",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.35",
