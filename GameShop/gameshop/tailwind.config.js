@@ -7,6 +7,9 @@ export default {
   ],
   darkMode: 'media',
   theme: {
+    container: {
+      center: true,
+    },
     extend: {},
   },
   plugins: ['preline/plugin'],
