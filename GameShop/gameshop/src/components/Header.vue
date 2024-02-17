@@ -1,7 +1,6 @@
-<!-- FALTARIA ENLAZAR CON HREF # EL ID PARA TPEAR A LA SECCION DONDE ESTA. VA A SER UN SPA -->
 <template>
     <!-- ========== HEADER ========== -->
-    <header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
+    <header class="sticky top-0 z-50 flex flex-wrap md:justify-start md:flex-nowrap w-full text-sm mb-11">
         <nav class="mt-6 relative max-w-[85rem] w-full bg-white border border-gray-200 rounded-[36px] mx-2 py-3 px-4 md:flex md:items-center md:justify-between md:py-0 md:px-6 lg:px-8 xl:mx-auto dark:bg-gray-800 dark:border-gray-700"
             aria-label="Global">
             <div class="flex items-center justify-between">
@@ -74,43 +73,43 @@
                             <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
                             <circle cx="12" cy="7" r="4" />
                         </svg>
-                        <!-- login icon -->
-                            <logIn :isOpen="isModalOpen" />
-                        </a>
-                        <!-- shopping cart -->
-                        <button type="modal-button"
-                            class="py-3 px-4 flex justify-center items-center size-[10px] text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="m5 11 4-7" />
-                                <path d="m19 11-4-7" />
-                                <path d="M2 11h20" />
-                                <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4" />
-                                <path d="m9 11 1 9" />
-                                <path d="M4.5 15.5h15" />
-                                <path d="m15 11-1 9" />
-                            </svg>
-                        </button>
-                        <!-- dark mode button -->
-                        <button type="modal-button"
-                            class="hs-dark-mode-active:block hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
-                            data-hs-theme-click-value="light">
-                            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="4" />
-                                <path d="M12 8a2 2 0 1 0 4 4" />
-                                <path d="M12 2v2" />
-                                <path d="M12 20v2" />
-                                <path d="m4.93 4.93 1.41 1.41" />
-                                <path d="m17.66 17.66 1.41 1.41" />
-                                <path d="M2 12h2" />
-                                <path d="M20 12h2" />
-                                <path d="m6.34 17.66-1.41 1.41" />
-                                <path d="m19.07 4.93-1.41 1.41" />
-                            </svg>
-                        </button>
+                        <!-- modal icon -->
+                        <logIn :isSigned="isSigned" @logedModal="closeSignIn" />
+                    </a>
+                    <!-- shopping cart -->
+                    <button type="modal-button"
+                        class="py-3 px-4 flex justify-center items-center size-[10px] text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="m5 11 4-7" />
+                            <path d="m19 11-4-7" />
+                            <path d="M2 11h20" />
+                            <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4" />
+                            <path d="m9 11 1 9" />
+                            <path d="M4.5 15.5h15" />
+                            <path d="m15 11-1 9" />
+                        </svg>
+                    </button>
+                    <!-- dark mode button -->
+                    <button type="modal-button"
+                        class="hs-dark-mode-active:block hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
+                        data-hs-theme-click-value="light">
+                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 8a2 2 0 1 0 4 4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="m4.93 4.93 1.41 1.41" />
+                            <path d="m17.66 17.66 1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="m6.34 17.66-1.41 1.41" />
+                            <path d="m19.07 4.93-1.41 1.41" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </nav>
@@ -128,10 +127,11 @@ export default {
     },
     data() {
         return {
-            isModalOpen: true
+            isSigned: true,
         }
     },
     name: 'Header',
+    emits: ['loadModal'],
     methods: {
         // this is the dropdown menu in jquery
         dropDownMenu() {
@@ -144,11 +144,13 @@ export default {
                 if (!$(target).is('.dropdown-toggle') && !$(target).parents().is('.dropdown-toggle')) { $('.dropdown').slideUp(); }
             });
         },
-        // button to open the sign-in modal
+        closeSignIn() {
+            this.isSigned = !this.isSigned;
+        }
     },
     mounted() {
         this.dropDownMenu();
-    }
+    },
 }
 
 </script>
