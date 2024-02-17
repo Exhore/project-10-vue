@@ -1,6 +1,9 @@
+<!-- AHORA CON HEADLESSVUE, PUEDO USAR LAS TRANSICIONES PARA ANIMAR LAS COSAS (CARRITO DE LA COMPRA, ETC) -->
+
 <template>
     <Header></Header>
     <LogIn></LogIn>
+    <ShoppingCart></ShoppingCart>
     <CarrouselContainer></CarrouselContainer>
     <HotDealsContainer></HotDealsContainer>
     <ItemsContainer></ItemsContainer>
@@ -14,11 +17,13 @@ import LogIn from './components/LogIn.vue'
 import HotDealsContainer from './components/HotDealsContainer.vue'
 import ItemsContainer from './components/ItemsContainer.vue'
 import FooterContainer from './components/FooterContainer.vue'
+import ShoppingCart from './components/ShoppingCart.vue'
 
 export default {
     name: "app",
     components: {
         Header,
+        ShoppingCart,
         CarrouselContainer,
         LogIn,
         HotDealsContainer,
