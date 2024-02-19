@@ -3,7 +3,7 @@
 <template>
     <Header></Header>
     <LogIn></LogIn>
-    <ShoppingCart></ShoppingCart>
+    <!-- <ShoppingCart></ShoppingCart> -->
     <CarrouselContainer></CarrouselContainer>
     <HotDealsContainer></HotDealsContainer>
     <ItemsContainer></ItemsContainer>

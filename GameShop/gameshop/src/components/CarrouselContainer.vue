@@ -10,12 +10,10 @@
                     alt="Image Description">
                 <div class="p-4 flex-1 md:p-5">
                     <h3 class="text-lg font-bold text-gray-800 dark:text-white">
-                        Card title
+                        test
                     </h3>
                     <p class="mt-1 text-gray-500 dark:text-gray-400">
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This
-                        content
-                        is a little bit longer.
+                        test
                     </p>
                 </div>
             </div>
@@ -26,10 +24,10 @@
                     alt="Image Description">
                 <div class="p-4 flex-1 md:p-5">
                     <h3 class="text-lg font-bold text-gray-800 dark:text-white">
-                        Card title
+                        test
                     </h3>
                     <p class="mt-1 text-gray-500 dark:text-gray-400">
-                        This card has supporting text below as a natural lead-in to additional content.
+                        test
                     </p>
                 </div>
             </div>
@@ -40,12 +38,10 @@
                     alt="Image Description">
                 <div class="p-4 flex-1 md:p-5">
                     <h3 class="text-lg font-bold text-gray-800 dark:text-white">
-                        Card title
+                        test
                     </h3>
                     <p class="mt-1 text-gray-500 dark:text-gray-400">
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This
-                        card
-                        has even longer content than the first to show that equal height action.
+                        test
                     </p>
                 </div>
             </div>
