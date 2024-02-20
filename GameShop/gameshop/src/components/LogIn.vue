@@ -66,6 +66,12 @@
                             </div>
                         </div>
                     </form>
+                    <div>
+                        <router-link to="/signUp"
+                            class="font-medium py-3 px-4 ps-11 grid container mx-auto justify-items-center mt-5">
+                            <a href="/signUp">Don't have an account yet?</a>
+                        </router-link>
+                    </div>
                 </div>
                 <!-- buttons for close and log in -->
                 <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-gray-700">
@@ -97,13 +103,11 @@ export default {
     methods: {
         modalIsOpen() {
             console.log('Login event');
-
         }
     },
     watch: {
         isSigned() {
             console.log('is signed');
-
         }
     }
 }
