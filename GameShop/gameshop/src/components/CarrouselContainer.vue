@@ -1,7 +1,7 @@
 <!-- AQUI VA A IR EL JQUERY DE CARROUSEL -->
 
 <template>
-    <div class="md: mx-auto w-[50%] mt-20">
+    <div class="md: mx-auto w-[50%] mt-20 carousel">
         <div
             class="mt-11 grid border rounded-xl shadow-sm divide-y overflow-hidden sm:flex sm:divide-y-0 sm:divide-x dark:border-gray-700 dark:shadow-slate-700/[.7] dark:divide-gray-600">
             <div class="flex flex-col flex-[1_0_0%] bg-white dark:bg-gray-800">
@@ -51,9 +51,22 @@
 
 
 <script>
+// imports for the carrousel
+import $ from 'jquery';
+
+
 export default {
     name: 'CarrouselContainer',
     methods: {
+        // THERE IS THE CARROUSEL JQUERY
+        carousel() {
+            $('.carousel').animate({
+                left: '+=100'
+            }, 1000, 'linear', this.carousel);
+        }
+    },
+    mounted() {
+        this.carousel();
     }
 }
 </script>
