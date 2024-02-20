@@ -3,7 +3,6 @@
 <template>
     <Header></Header>
     <LogIn></LogIn>
-    <!-- <ShoppingCart></ShoppingCart> -->
     <CarrouselContainer></CarrouselContainer>
     <NewGamesContainer></NewGamesContainer>
     <ItemsContainer></ItemsContainer>
@@ -17,13 +16,11 @@ import LogIn from './components/LogIn.vue'
 import NewGamesContainer from './components/NewGamesContainer.vue'
 import ItemsContainer from './components/ItemsContainer.vue'
 import FooterContainer from './components/FooterContainer.vue'
-import ShoppingCart from './components/ShoppingCart.vue'
 
 export default {
     name: "app",
     components: {
         Header,
-        ShoppingCart,
         CarrouselContainer,
         LogIn,
         NewGamesContainer,
