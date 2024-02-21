@@ -31,11 +31,19 @@
                 class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block">
                 <div
                     class="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-7 md:mt-0 md:ps-7">
-                    <a class="font-medium text-blue-600 md:py-6 dark:text-blue-500" href="#" aria-current="page">Landing</a>
+                    <a class="font-medium text-blue-600 md:py-2 dark:text-blue-500" href="/" aria-current="page"><span
+                            class="m-1 inline-flex justify-center items-center size-[46px] rounded-full text-blue-600 dark:text-blue-500">
+                            <svg class="flex-shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                <polyline points="9 22 9 12 15 12 15 22" />
+                            </svg>
+                        </span></a>
                     <a class="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500"
-                        href="">New Games</a>
+                        href="#new-games">New Games</a>
                     <a class="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500"
-                        href="#">About us</a>
+                        href="#about-us">About us</a>
 
                     <!-- DROPDOWN MENU IN JQUERY -->
 
@@ -90,8 +98,8 @@
                             <path d="m15 11-1 9" />
                         </svg>
                     </button>
-                    <!-- dark mode button -->
-                    <button type="modal-button"
+                    <!-- dark mode button, NOT IN USE ATLEAST I GOT ENOUGH TIME FOR THIS. WORKING ON-->
+<!--                     <button type="modal-button"
                         class="hs-dark-mode-active:block hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
                         data-hs-theme-click-value="light">
                         <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -108,7 +116,7 @@
                             <path d="m6.34 17.66-1.41 1.41" />
                             <path d="m19.07 4.93-1.41 1.41" />
                         </svg>
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </nav>
