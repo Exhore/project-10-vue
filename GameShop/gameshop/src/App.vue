@@ -16,6 +16,23 @@ import NewGamesContainer from './components/NewGamesContainer.vue'
 import ItemsContainer from './components/ItemsContainer.vue'
 import FooterContainer from './components/FooterContainer.vue'
 import AboutUsContainer from './components/AboutUsContainer.vue'
+import SignUpForm from './components/SignUpForm.vue'
+
+/* routes */
+
+/* sign up route  */
+
+const routes = [
+    { path: '/signUp', component: SignUpForm },
+    { path: '/logIn', component: LogIn }
+]
+
+const router = new VueRouter({
+    history: VueRouter.createHashHistory(),
+    routes,
+})
+
+
 
 export default {
     name: "app",

@@ -10,11 +10,10 @@
                     Solving problems for every <span class="text-blue-600 dark:text-blue-500">team</span>
                 </h1>
                 <p class="mt-3 text-base text-gray-500">
-                    Built on standard web technology, teams use Preline to build beautiful cross-platform hybrid apps in a
+                    Built on standard web technology, teams to build beautiful cross-platform hybrid apps in a
                     fraction of the time.
                 </p>
                 <!-- End Title -->
-
                 <div class="mt-8 grid">
                     <button
                         class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
@@ -93,6 +92,6 @@ import FooterContainer from './FooterContainer.vue';
 export default {
     name: 'SignUpForm',
     methods: {},
-    components: { FooterContainer, Header }
+    components: { Header, FooterContainer }
 }
 </script>

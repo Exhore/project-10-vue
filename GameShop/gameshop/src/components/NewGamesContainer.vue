@@ -2,6 +2,7 @@
     <div class="bg-gray-100 mt-11" id="new-games">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+                <!-- pillar titulos de bbdd -->
                 <h2 class="text-2xl font-bold text-gray-900">Popular New Games & Pre-Orders</h2>
 
                 <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
@@ -21,6 +22,7 @@
                         <p class="text-base font-semibold text-gray-900">Pirates, battleships and looting</p>
                     </div>
                     <div class="group relative">
+                        <!-- HACER LLAMADA A BBDD PARA RECUPERAR TODAS LAS IMAGENES -->
                         <div
                             class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64 shadow-2xl">
                             <img src="../assets/frontpage/finalfantasy.png"
@@ -58,9 +60,11 @@
 
 
 <script>
+import AboutUsContainer from './AboutUsContainer.vue';
+
 export default {
     name: 'NewGamesContainer',
-    methods: {
-    }
+    methods: {},
+    components: { AboutUsContainer }
 }
 </script>

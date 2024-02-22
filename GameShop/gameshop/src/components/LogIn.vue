@@ -69,7 +69,7 @@
                     <div>
                         <router-link to="/signUp"
                             class="font-medium py-3 px-4 ps-11 grid container mx-auto justify-items-center mt-5">
-                            <a href="/signUp">Don't have an account yet?</a>
+                            Don't have an account yet?
                         </router-link>
                     </div>
                 </div>

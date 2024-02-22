@@ -12,7 +12,7 @@
                         started to grow and expand market.</p>
                 </div>
                 <div class="w-full lg:w-8/12">
-                    <img class="" src="https://i.ibb.co/FhgPJt8/Rectangle-116.png" />
+                    <img class="w-[40rem]" src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg" />
                 </div>
             </div>
         </div>
