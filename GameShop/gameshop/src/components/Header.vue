@@ -80,8 +80,10 @@
                             <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
                             <circle cx="12" cy="7" r="4" />
                         </svg>
-                        <!-- modal icon -->
-                        <logIn :isSigned="isSigned" @logedModal="closeSignIn" />
+                        <!-- sign in icon operation -->
+                        <router-link to="/">
+                            <div @click="toggleLogin">Log in</div>
+                        </router-link> <!-- listen to function -->
                     </a>
                     <!-- shopping cart -->
                     <button type="modal-button"
@@ -99,7 +101,7 @@
                         </svg>
                     </button>
                     <!-- dark mode button, NOT IN USE ATLEAST I GOT ENOUGH TIME FOR THIS. WORKING ON-->
-<!--                     <button type="modal-button"
+                    <!--                     <button type="modal-button"
                         class="hs-dark-mode-active:block hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
                         data-hs-theme-click-value="light">
                         <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -126,20 +128,20 @@
 
 <script>
 import $ from 'jquery';
-import logIn from './LogIn.vue';
+import { showLogin } from '@/store';
 
 export default {
     components: {
-        logIn
     },
     data() {
         return {
-            isSigned: true,
         }
     },
     name: 'Header',
-    emits: ['loadModal'],
     methods: {
+        toggleLogin() {
+            showLogin.value = !showLogin.value
+        },
         // this is the dropdown menu in jquery
         dropDownMenu() {
             $('.dropdown-toggle').click(function () {
@@ -151,13 +153,10 @@ export default {
                 if (!$(target).is('.dropdown-toggle') && !$(target).parents().is('.dropdown-toggle')) { $('.dropdown').slideUp(); }
             });
         },
-        closeSignIn() {
-            this.isSigned = !this.isSigned;
-        }
     },
     mounted() {
         this.dropDownMenu();
     },
 }
 
-</script>
+</script>@/store.js

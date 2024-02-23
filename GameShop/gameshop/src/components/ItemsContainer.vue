@@ -40,6 +40,20 @@ const products = [
         imageAlt: "test.",
         price: '$35',
     },
+    {
+        id: 2,
+        name: 'test',
+        href: '#',
+        imageAlt: "test.",
+        price: '$35',
+    },
+    {
+        id: 3,
+        name: 'test',
+        href: '#',
+        imageAlt: "test.",
+        price: '$35',
+    }
     // mas productos
 ]
 </script>

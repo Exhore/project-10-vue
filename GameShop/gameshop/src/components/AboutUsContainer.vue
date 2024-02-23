@@ -1,6 +1,5 @@
 <template>
-    <!-- Team -->
-    <div class="px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto bg-gray-100 mt-11" id="about-us">
+    <div class="px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto mt-11" id="about-us">
 
         <div class="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">
             <div class="flex flex-col lg:flex-row justify-between gap-8">

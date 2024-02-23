@@ -1,5 +1,6 @@
 <!-- Hero -->
 <template>
+    <Header />
     <router-view>
         <!-- Hero -->
         <div class="relative bg-gradient-to-bl from-blue-100 via-transparent dark:from-blue-950 dark:via-transparent">
@@ -39,7 +40,7 @@
                                             Already have an account?
                                             <a
                                                 class="text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                                                <router-link to="/logIn">
+                                                <router-link to="/">
                                                     Sign in here
                                                 </router-link>
                                             </a>
@@ -168,6 +169,50 @@
             </div>
         </div>
     </router-view>
+
+
+    <!-- Features -->
+    <div class="max-w-[85rem] sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <!-- Grid -->
+        <div class="grid grid-cols-12 items-center gap-x-2 sm:gap-x-6 lg:gap-x-8">
+            <div class="hidden md:block col-span-4 md:col-span-3">
+                <img class="rounded-xl"
+                    src="https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1981&q=80"
+                    alt="Image Description">
+            </div>
+            <!-- End Col -->
+
+            <div class="col-span-4 md:col-span-3">
+                <img class="rounded-xl"
+                    src="https://images.unsplash.com/photo-1587613991119-fbbe8e90531d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1003&q=80"
+                    alt="Image Description">
+            </div>
+            <!-- End Col -->
+
+            <div class="col-span-4 md:col-span-3">
+                <img class="rounded-xl"
+                    src="https://images.unsplash.com/photo-1554295405-abb8fd54f153?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=652&q=80"
+                    alt="Image Description">
+            </div>
+            <!-- End Col -->
+
+            <div class="col-span-4 md:col-span-3">
+                <img class="rounded-xl"
+                    src="https://images.unsplash.com/photo-1640622300473-977435c38c04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80"
+                    alt="Image Description">
+            </div>
+            <!-- End Col -->
+        </div>
+        <!-- End Grid -->
+    </div>
+    <!-- End Features -->
+
+
+
+
+
+
+
     <FooterContainer class="mt-20" />
 </template>
 
