@@ -74,14 +74,26 @@
                                             <div>
                                                 <!-- Floating Input -->
                                                 <div class="relative col-span-full">
-                                                    <input type="email" id="hs-hero-signup-form-floating-input-email" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+
+
+                                                    <!-- EMAIL VALIDATION -->
+                                                    <input type="email" id="email" :class="{
+                                                        'border-red-500': !isValid, 'border-green-500':
+                                                            isValid
+                                                    }" @input="validateWithRegex(regexEmail, $event.target.value)"
+                                                        class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
                       focus:pt-6
                       focus:pb-2
                       [&:not(:placeholder-shown)]:pt-6
                       [&:not(:placeholder-shown)]:pb-2
                       autofill:pt-6
                       autofill:pb-2" placeholder="you@email.com">
-                                                    <label for="hs-hero-signup-form-floating-input-email" class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                                                    <!-- END EMAIL VALIDATION -->
+
+
+                                                    <div class="mx-auto m-0 my-0 text-red-500" v-if="!isValid">You must put
+                                                        a valid email.</div>
+                                                    <label for="email" class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
                         peer-focus:text-xs
                         peer-focus:-translate-y-1.5
                         peer-focus:text-gray-500
@@ -94,15 +106,14 @@
                                             </div>
                                             <div class="relative col-span-full">
                                                 <div class="relative">
-                                                    <input type="password" id="hs-hero-signup-form-floating-input-password"
-                                                        class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+                                                    <input type="password" id="password" autocomplete="on" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
                       focus:pt-6
                       focus:pb-2
                       [&:not(:placeholder-shown)]:pt-6
                       [&:not(:placeholder-shown)]:pb-2
                       autofill:pt-6
                       autofill:pb-2" placeholder="********">
-                                                    <label for="hs-hero-signup-form-floating-input-password" class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                                                    <label for="password-label" class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
                         peer-focus:text-xs
                         peer-focus:-translate-y-1.5
                         peer-focus:text-gray-500
@@ -110,29 +121,18 @@
                         peer-[:not(:placeholder-shown)]:-translate-y-1.5
                         peer-[:not(:placeholder-shown)]:text-gray-500">Password</label>
                                                 </div>
-
-                                                <div id="hs-strong-password-popover"
-                                                    class="hidden absolute z-10 w-full bg-blue-50 rounded-lg p-4 dark:bg-blue-950">
-                                                    <div id="hs-strong-password-in-popover" data-hs-strong-password='{
-                          "target": "#hs-hero-signup-form-floating-input-password",
-                          "hints": "#hs-strong-password-popover",
-                          "stripClasses": "hs-strong-password:opacity-100 hs-strong-password-accepted:bg-teal-500 h-2 flex-auto rounded-full bg-blue-500 opacity-50 mx-1",
-                          "mode": "popover"
-                        }' class="flex mt-2 -mx-1">
-                                                    </div>
-                                                </div>
+                                                <!-- PASSWORD REGEX -->
                                             </div>
                                             <div class="col-span-full">
                                                 <div class="relative">
-                                                    <input type="password"
-                                                        id="hs-hero-signup-form-floating-input-current-password" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+                                                    <input type="password" id="current-password" autocomplete="on" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
                       focus:pt-6
                       focus:pb-2
                       [&:not(:placeholder-shown)]:pt-6
                       [&:not(:placeholder-shown)]:pb-2
                       autofill:pt-6
                       autofill:pb-2" placeholder="********">
-                                                    <label for="hs-hero-signup-form-floating-input-current-password" class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                                                    <label autocomplete=on for="current-password" class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
                         peer-focus:text-xs
                         peer-focus:-translate-y-1.5
                         peer-focus:text-gray-500
@@ -170,8 +170,8 @@
         </div>
     </router-view>
 
+    <!-- gaming images -->
 
-    <!-- Features -->
     <div class="max-w-[85rem] sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <!-- Grid -->
         <div class="grid grid-cols-12 items-center gap-x-2 sm:gap-x-6 lg:gap-x-8">
@@ -206,13 +206,6 @@
         <!-- End Grid -->
     </div>
     <!-- End Features -->
-
-
-
-
-
-
-
     <FooterContainer class="mt-20" />
 </template>
 
@@ -223,7 +216,33 @@ import FooterContainer from './FooterContainer.vue';
 
 export default {
     name: 'SignUpForm',
-    methods: {},
-    components: { Header, FooterContainer }
+    data() {
+        return {
+            // this is for switch state of green and red border
+            isValid: false,
+
+            // all regex patterns
+            regexName: new RegExp("^[A-Z][a-zA-Z]{2,40}$"),
+            regexlastname: new RegExp("^[A-Z][a-z-A-Z]{2,30} [A-Z][a-z-A-Z]{2,30}$"),
+            regexDNI: new RegExp("^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$", "i"),
+            regexDate: new RegExp('^(19|20)\\d\\d-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])'),
+            regexPC: new RegExp("^(?:0[1-9]|[1-4]\\d|5[0-2])\\d{3}$"),
+            regexEmail: new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,5}$"),
+            regexTelephone: new RegExp("\\+?34[ -]*(8|9)[ -]*([0-9][ -]*){8}$"),
+            regexPhone: new RegExp("\\+?34[ -]*(6|7)[ -]*([0-9][ -]*){8}$"),
+            regexIBAN: new RegExp("([a-zA-Z]{2})\\s* *(\\d{2})\\s* *(\\d{4})\\s* *(\\d{4})\\s* *(\\d{2})\\s* *(\\d{10})$"),
+            regexCreditCardVisa: new RegExp("^4[0-9]{12}(?:[0-9]{3})?$"),
+            regexCreditCardMastercard: new RegExp("^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$"),
+            regexPassword: new RegExp("(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.{8,})[a-zA-Z0-9!@#$&*]+"),
+        }
+    },
+    components: { Header, FooterContainer },
+    methods: {
+        validateWithRegex(regex, value) {
+            this.isValid = new RegExp(regex).test(value);
+            console.log(this.isValid);
+        }
+    }
 }
+
 </script>

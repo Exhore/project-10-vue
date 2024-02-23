@@ -82,7 +82,7 @@
                         </svg>
                         <!-- sign in icon operation -->
                         <router-link to="/">
-                            <div @click="toggleLogin">Log in</div>
+                            <div @click="toggleLogin" href="#login">Log in</div>
                         </router-link> <!-- listen to function -->
                     </a>
                     <!-- shopping cart -->
@@ -159,4 +159,4 @@ export default {
     },
 }
 
-</script>@/store.js
+</script>

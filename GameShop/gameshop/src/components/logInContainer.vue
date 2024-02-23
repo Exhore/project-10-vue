@@ -1,9 +1,9 @@
 <template>
-    <html class="h-full bg-gray-100 my-20" v-show="showLogin" id="login">
+    <html class="h-full bg-gray-100 my-20" v-show="showLogin">
 
     <body class="dark:bg-slate-900 flex h-full items-center py-16">
         <main class="w-full max-w-md mx-auto p-6">
-            <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700" id="login">
                 <div class="p-4 sm:p-7">
                     <div class="text-center">
                         <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Sign in</h1>
@@ -128,9 +128,7 @@ export default {
         }
     },
     methods: {
-        toggleLogin() {
-            this.showLogin = !this.showLogin
-        }
+
     }
 }
 </script>
