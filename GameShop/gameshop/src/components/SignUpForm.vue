@@ -72,41 +72,150 @@
                                             Or</div>
                                         <div class="grid grid-cols-1 gap-4">
                                             <div>
+
+                                                <div class="relative col-span-full my-3">
+                                                    <!-- NAME VALIDATION -->
+                                                    <input type="text" id="name" v-model="form.name" :class="{
+                                                        'border-red-500': !isValid.name, 'border-green-500':
+                                                            isValid.name
+                                                    }" @change="validateWithRegex('name', $event.target.value)" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+focus:pt-6
+focus:pb-2
+[&:not(:placeholder-shown)]:pt-6
+[&:not(:placeholder-shown)]:pb-2
+autofill:pt-6
+autofill:pb-2" placeholder="you@email.com">
+                                                    <!-- END NAME VALIDATION -->
+                                                    <div class="mx-auto text-red-500 text-xs" v-if="!isValid.name">You must
+                                                        put
+                                                        a valid name.</div>
+                                                    <label for="name" class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
+peer-focus:text-xs
+peer-focus:-translate-y-1.5
+peer-focus:text-gray-500
+peer-[:not(:placeholder-shown)]:text-xs
+peer-[:not(:placeholder-shown)]:-translate-y-1.5
+peer-[:not(:placeholder-shown)]:text-gray-500">Name</label>
+                                                </div>
+
+
+
+
+                                                <div class="relative col-span-full my-3">
+
+
+                                                    <!-- DNI VALIDATION -->
+                                                    <input type="text" id="id" v-model="form.dni" :class="{
+                                                        'border-red-500': !isValid.dni, 'border-green-500':
+                                                            isValid.dni
+                                                    }" @change="validateWithRegex('dni', $event.target.value)" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+focus:pt-6
+focus:pb-2
+[&:not(:placeholder-shown)]:pt-6
+[&:not(:placeholder-shown)]:pb-2
+autofill:pt-6
+autofill:pb-2" placeholder="you@email.com">
+                                                    <!-- END DNI VALIDATION -->
+
+
+                                                    <div class="mx-auto text-red-500 text-xs" v-if="!form.dni">You must put
+                                                        a valid DNI.</div>
+                                                    <label for="id" class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
+peer-focus:text-xs
+peer-focus:-translate-y-1.5
+peer-focus:text-gray-500
+peer-[:not(:placeholder-shown)]:text-xs
+peer-[:not(:placeholder-shown)]:-translate-y-1.5
+peer-[:not(:placeholder-shown)]:text-gray-500">DNI</label>
+                                                </div>
+
+
+
+
+
                                                 <!-- Floating Input -->
-                                                <div class="relative col-span-full">
+                                                <div class="relative col-span-full my-3">
 
 
                                                     <!-- EMAIL VALIDATION -->
-                                                    <input type="email" id="email" :class="{
-                                                        'border-red-500': !isValid, 'border-green-500':
-                                                            isValid
-                                                    }" @input="validateWithRegex(regexEmail, $event.target.value)"
-                                                        class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+                                                    <input type="email" id="email" v-model="form.email" :class="{
+                                                        'border-red-500': !isValid.email, 'border-green-500':
+                                                            isValid.email
+                                                    }" @change="validateWithRegex('email', $event.target.value)" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+focus:pt-6
+focus:pb-2
+[&:not(:placeholder-shown)]:pt-6
+[&:not(:placeholder-shown)]:pb-2
+autofill:pt-6
+autofill:pb-2" placeholder="you@email.com">
+                                                    <!-- END EMAIL VALIDATION -->
+                                                    <div class="mx-auto text-red-500 text-xs" v-if="!form.email">You must
+                                                        put
+                                                        a valid email.</div>
+                                                    <label for="email" class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
+peer-focus:text-xs
+peer-focus:-translate-y-1.5
+peer-focus:text-gray-500
+peer-[:not(:placeholder-shown)]:text-xs
+peer-[:not(:placeholder-shown)]:-translate-y-1.5
+peer-[:not(:placeholder-shown)]:text-gray-500">Email</label>
+                                                </div>
+
+
+                                                <div class="relative col-span-full my-3">
+                                                    <!-- BANK VALIDATION -->
+                                                    <input type="text" id="bank" v-model="form.bank" :class="{
+                                                        'border-red-500': !isValid.bank, 'border-green-500':
+                                                            isValid.bank
+                                                    }" @change="validateWithRegex('bank', $event.target.value)" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
                       focus:pt-6
                       focus:pb-2
                       [&:not(:placeholder-shown)]:pt-6
                       [&:not(:placeholder-shown)]:pb-2
                       autofill:pt-6
-                      autofill:pb-2" placeholder="you@email.com">
-                                                    <!-- END EMAIL VALIDATION -->
+                      autofill:pb-2" placeholder="bankaccount">
+                                                    <!-- END BANK VALIDATION -->
 
 
-                                                    <div class="mx-auto m-0 my-0 text-red-500" v-if="!isValid">You must put
-                                                        a valid email.</div>
+                                                    <div class="mx-auto text-red-500 text-xs" v-if="!form.bank">You must put
+                                                        a valid bank account.</div>
                                                     <label for="email" class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
                         peer-focus:text-xs
                         peer-focus:-translate-y-1.5
                         peer-focus:text-gray-500
                         peer-[:not(:placeholder-shown)]:text-xs
                         peer-[:not(:placeholder-shown)]:-translate-y-1.5
-                        peer-[:not(:placeholder-shown)]:text-gray-500">Email</label>
+                        peer-[:not(:placeholder-shown)]:text-gray-500">Bank Account</label>
                                                 </div>
-                                            </div>
-                                            <div>
+                                                <!-- PHONE VALIDATION -->
+                                                <div class="relative col-span-full my-3">
+                                                    <input type="text" id="bank" v-model="form.phone" :class="{
+                                                        'border-red-500': !isValid.phone, 'border-green-500':
+                                                            isValid.phone
+                                                    }" @change="validateWithRegex('phone', $event.target.value)" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+                      focus:pt-6
+                      focus:pb-2
+                      [&:not(:placeholder-shown)]:pt-6
+                      [&:not(:placeholder-shown)]:pb-2
+                      autofill:pt-6
+                      autofill:pb-2" placeholder="phone">
+                                                    <div class="mx-auto text-red-500 text-xs" v-if="!form.phone">You must
+                                                        put
+                                                        a valid phone. +34 required.</div>
+                                                    <label for="text" class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                        peer-focus:text-xs
+                        peer-focus:-translate-y-1.5
+                        peer-focus:text-gray-500
+                        peer-[:not(:placeholder-shown)]:text-xs
+                        peer-[:not(:placeholder-shown)]:-translate-y-1.5
+                        peer-[:not(:placeholder-shown)]:text-gray-500">Phone</label>
+                                                </div>
+                                                <!-- END PHONE VALIDATION -->
                                             </div>
                                             <div class="relative col-span-full">
                                                 <div class="relative">
-                                                    <input type="password" id="password" autocomplete="on" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+                                                    <input type="password" v-model="form.password" id="password"
+                                                        autocomplete="on" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
                       focus:pt-6
                       focus:pb-2
                       [&:not(:placeholder-shown)]:pt-6
@@ -123,9 +232,10 @@
                                                 </div>
                                                 <!-- PASSWORD REGEX -->
                                             </div>
-                                            <div class="col-span-full">
+                                            <div class="col-span-full my-3">
                                                 <div class="relative">
-                                                    <input type="password" id="current-password" autocomplete="on" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+                                                    <input type="password" v-model="form.currentPassword"
+                                                        id="current-password" autocomplete="on" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
                       focus:pt-6
                       focus:pb-2
                       [&:not(:placeholder-shown)]:pt-6
@@ -218,31 +328,87 @@ export default {
     name: 'SignUpForm',
     data() {
         return {
-            // this is for switch state of green and red border
-            isValid: false,
+            form: {
+                name: "",
+                dni: "",
+                email: "",
+                bank: "",
+                phone: "",
+                password: "",
+                currentPassword: "",
+            },
+            isValid: {
+                name: false,
+                dni: false,
+                email: false,
+                bank: false,
+                phone: false,
+                password: false,
+                currentPassword: false,
+            },
 
             // all regex patterns
             regexName: new RegExp("^[A-Z][a-zA-Z]{2,40}$"),
-            regexlastname: new RegExp("^[A-Z][a-z-A-Z]{2,30} [A-Z][a-z-A-Z]{2,30}$"),
             regexDNI: new RegExp("^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$", "i"),
-            regexDate: new RegExp('^(19|20)\\d\\d-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])'),
-            regexPC: new RegExp("^(?:0[1-9]|[1-4]\\d|5[0-2])\\d{3}$"),
             regexEmail: new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,5}$"),
-            regexTelephone: new RegExp("\\+?34[ -]*(8|9)[ -]*([0-9][ -]*){8}$"),
+            regexbank: new RegExp("([a-zA-Z]{2})\\s* *(\\d{2})\\s* *(\\d{4})\\s* *(\\d{4})\\s* *(\\d{2})\\s* *(\\d{10})$"),
             regexPhone: new RegExp("\\+?34[ -]*(6|7)[ -]*([0-9][ -]*){8}$"),
-            regexIBAN: new RegExp("([a-zA-Z]{2})\\s* *(\\d{2})\\s* *(\\d{4})\\s* *(\\d{4})\\s* *(\\d{2})\\s* *(\\d{10})$"),
-            regexCreditCardVisa: new RegExp("^4[0-9]{12}(?:[0-9]{3})?$"),
-            regexCreditCardMastercard: new RegExp("^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$"),
             regexPassword: new RegExp("(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.{8,})[a-zA-Z0-9!@#$&*]+"),
         }
     },
     components: { Header, FooterContainer },
     methods: {
-        validateWithRegex(regex, value) {
-            this.isValid = new RegExp(regex).test(value);
-            console.log(this.isValid);
+        validateWithRegex(value, field) {
+            let regex;
+            switch (value) {
+                case 'name':
+                    regex = this.regexName;
+                    break;
+                case 'dni':
+                    regex = this.regexDNI;
+                    break;
+                case 'email':
+                    regex = this.regexEmail;
+                    break;
+                case 'bank':
+                    regex = this.regexbank;
+                    break;
+                case 'phone':
+                    regex = this.regexPhone;
+                    break;
+                case 'password':
+                    regex = this.regexPassword;
+                    break;
+                default:
+                    return false;
+            }
+            console.log(regex.test(field));
+            return regex.test(field);
+        },
+        submitForm() {
+            console.log(this.form);
+        }
+    },
+    // WATCHER FOR FORM CHANGES
+    watch: {
+        'form.name': function (newVal) {
+            this.isValid.name = this.validateWithRegex('name', newVal);
+        },
+        'form.dni': function (newVal) {
+            this.isValid.dni = this.validateWithRegex('dni', newVal);
+        },
+        'form.email': function (newVal) {
+            this.isValid.email = this.validateWithRegex('email', newVal);
+        },
+        'form.bank': function (newVal) {
+            this.isValid.bank = this.validateWithRegex('bank', newVal);
+        },
+        'form.phone': function (newVal) {
+            this.isValid.phone = this.validateWithRegex('phone', newVal);
+        },
+        'form.password': function (newVal) {
+            this.isValid.password = this.validateWithRegex('password', newVal);
         }
     }
 }
-
 </script>
