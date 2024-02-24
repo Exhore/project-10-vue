@@ -189,7 +189,7 @@ peer-[:not(:placeholder-shown)]:text-gray-500">Email</label>
                                                 </div>
                                                 <!-- PHONE VALIDATION -->
                                                 <div class="relative col-span-full my-3">
-                                                    <input type="text" id="bank" v-model="form.phone" :class="{
+                                                    <input type="text" id="phone" v-model="form.phone" :class="{
                                                         'border-red-500': !isValid.phone, 'border-green-500':
                                                             isValid.phone
                                                     }" @change="validateWithRegex('phone', $event.target.value)" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
@@ -214,7 +214,10 @@ peer-[:not(:placeholder-shown)]:text-gray-500">Email</label>
                                             </div>
                                             <div class="relative col-span-full">
                                                 <div class="relative">
-                                                    <input type="password" v-model="form.password" id="password"
+                                                    <input type="password" v-model="form.password" id="password" :class="{
+                                                        'border-red-500': !isValid.password, 'border-green-500':
+                                                            isValid.password
+                                                    }" @change="validateWithRegex('password', $event.target.value)"
                                                         autocomplete="on" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
                       focus:pt-6
                       focus:pb-2
@@ -229,13 +232,20 @@ peer-[:not(:placeholder-shown)]:text-gray-500">Email</label>
                         peer-[:not(:placeholder-shown)]:text-xs
                         peer-[:not(:placeholder-shown)]:-translate-y-1.5
                         peer-[:not(:placeholder-shown)]:text-gray-500">Password</label>
+                                                    <div class="mx-auto text-red-500 text-xs" v-if="!form.password">You must
+                                                        put a valid Password. Password must be +8 digits, and it includes
+                                                        special char and mayus.</div>
                                                 </div>
                                                 <!-- PASSWORD REGEX -->
                                             </div>
                                             <div class="col-span-full my-3">
                                                 <div class="relative">
                                                     <input type="password" v-model="form.currentPassword"
-                                                        id="current-password" autocomplete="on" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+                                                        @change="matchPasswords($event.target.value)" id="current-password"
+                                                        autocomplete="on" :class="{
+                                                            'border-red-500': !isValid.currentPassword, 'border-green-500':
+                                                                isValid.currentPassword
+                                                        }" class="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
                       focus:pt-6
                       focus:pb-2
                       [&:not(:placeholder-shown)]:pt-6
@@ -249,6 +259,8 @@ peer-[:not(:placeholder-shown)]:text-gray-500">Email</label>
                         peer-[:not(:placeholder-shown)]:text-xs
                         peer-[:not(:placeholder-shown)]:-translate-y-1.5
                         peer-[:not(:placeholder-shown)]:text-gray-500">Current password</label>
+                                                    <div class="mx-auto text-red-500 text-xs" v-if="!form.currentPassword">
+                                                        Passwords needs to match.</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -257,6 +269,7 @@ peer-[:not(:placeholder-shown)]:text-gray-500">Email</label>
                                         <div class="mt-5 flex items-center">
                                             <div class="flex">
                                                 <input id="remember-me" name="remember-me" type="checkbox"
+                                                    v-model="termsAccepted"
                                                     class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
                                             </div>
                                             <div class="ms-3">
@@ -266,7 +279,7 @@ peer-[:not(:placeholder-shown)]:text-gray-500">Email</label>
                                             </div>
                                         </div>
                                         <div class="mt-5">
-                                            <button type="submit"
+                                            <button type="submit" :disabled="!invalidForm"
                                                 class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Get
                                                 started</button>
                                         </div>
@@ -328,6 +341,7 @@ export default {
     name: 'SignUpForm',
     data() {
         return {
+            // form values
             form: {
                 name: "",
                 dni: "",
@@ -337,6 +351,7 @@ export default {
                 password: "",
                 currentPassword: "",
             },
+            // form boolean state for validation
             isValid: {
                 name: false,
                 dni: false,
@@ -346,6 +361,8 @@ export default {
                 password: false,
                 currentPassword: false,
             },
+            // terms and conditions checkbox
+            termsAccepted: false,
 
             // all regex patterns
             regexName: new RegExp("^[A-Z][a-zA-Z]{2,40}$"),
@@ -385,8 +402,16 @@ export default {
             console.log(regex.test(field));
             return regex.test(field);
         },
+        matchPasswords(value) {
+            this.form.password == value && this.form.password != "" ? this.isValid.currentPassword = true : this.isValid.currentPassword = false;
+        },
         submitForm() {
             console.log(this.form);
+        }
+    },
+    computed: {
+        invalidForm() {
+            return Object.values(this.isValid).every((value) => value) && this.form.password == this.form.currentPassword && this.termsAccepted;
         }
     },
     // WATCHER FOR FORM CHANGES
@@ -408,6 +433,9 @@ export default {
         },
         'form.password': function (newVal) {
             this.isValid.password = this.validateWithRegex('password', newVal);
+        },
+        'form.currentPassword': function (newVal) {
+            this.matchPasswords(newVal);
         }
     }
 }
