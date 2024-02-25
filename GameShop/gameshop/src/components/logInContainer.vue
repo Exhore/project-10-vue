@@ -1,9 +1,10 @@
 <template>
-    <html class="h-full bg-gray-100 my-20" v-show="showLogin">
+    <html class="h-full bg-gray-100 my-20" v-show="showLogin" id="#login">
 
-    <body class="dark:bg-slate-900 flex h-full items-center py-16">
+    <body class="dark:bg-slate-900 flex h-full items-center py-16 mt-11 mb-20">
         <main class="w-full max-w-md mx-auto p-6">
-            <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700" id="login">
+            <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700"
+                id="login">
                 <div class="p-4 sm:p-7">
                     <div class="text-center">
                         <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Sign in</h1>
@@ -45,9 +46,9 @@
                             <div class="grid gap-y-4">
                                 <!-- Form Group -->
                                 <div>
-                                    <label for="email" class="block text-sm mb-2 dark:text-white">Email address</label>
+                                    <label for="email" class="block text-sm mb-2 dark:text-white">Email</label>
                                     <div class="relative">
-                                        <input type="email" id="email" name="email"
+                                        <input type="email" id="email" name="email" autocomplete="name" v-model="email"
                                             class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                                             required aria-describedby="email-error">
                                         <div class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
@@ -59,7 +60,7 @@
                                         </div>
                                     </div>
                                     <p class="hidden text-xs text-red-600 mt-2" id="email-error">Please include a valid
-                                        email address so we can get back to you</p>
+                                        Email so we can get back to you</p>
                                 </div>
                                 <!-- End Form Group -->
 
@@ -67,11 +68,13 @@
                                 <div>
                                     <div class="flex justify-between items-center">
                                         <label for="password" class="block text-sm mb-2 dark:text-white">Password</label>
-                                        <a class="text-sm text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                            href="../examples/html/recover-account.html">Forgot password?</a>
+                                        <a
+                                            class="text-sm text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Forgot
+                                            password?</a>
                                     </div>
                                     <div class="relative">
-                                        <input type="password" id="password" name="password"
+                                        <input type="password" id="password" name="password" autocomplete="current-password"
+                                            v-model="password"
                                             class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                                             required aria-describedby="password-error">
                                         <div class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
@@ -99,9 +102,10 @@
                                 </div>
                                 <!-- End Checkbox -->
 
-                                <button type="submit"
+                                <button @click=logInDB
                                     class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Sign
                                     in</button>
+                                <p v-if="loginError" class="text-xs text-red-500">Invalid credentials. Check again.</p>
                             </div>
                         </form>
                         <!-- End Form -->
@@ -117,6 +121,9 @@
 
 <script>
 import { showLogin } from '@/store'
+import { loginText } from '@/store'
+import $ from 'jquery'
+
 
 export default {
     name: "logInContainer",
@@ -124,11 +131,38 @@ export default {
     },
     data() {
         return {
-            showLogin: showLogin
+            showLogin: showLogin,
+            loginText: loginText,
+            loginError: false,
+            email: "",
+            password: ""
         }
     },
+    /* AJAX METHOD TO GET FROM SERVER */
     methods: {
-
+        logInDB(event) {
+            event.preventDefault();
+            console.log("test");
+            $.ajax({
+                data: { email: this.email, password: this.password },
+                type: 'POST',
+                url: 'https://nelsonrivera.es/Gameshop.php?action=login',
+            }).done((data) => {
+                console.log(data);
+                // change the showLogin value
+                if (data["101"] == 1) {
+                    this.showLogin = false;
+                    this.toggleLoginText();
+                    console.log("Loged in");
+                } else {
+                    this.loginError = true;
+                    console.log("Not loged in");
+                }
+            });
+        },
+        toggleLoginText() {
+            loginText.value = !loginText.value
+        },
     }
 }
 </script>

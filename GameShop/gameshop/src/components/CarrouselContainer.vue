@@ -1,35 +1,10 @@
-<!-- AQUI VA A IR EL JQUERY DE CARROUSEL -->
-
 <template>
-    <div data-slick='{"slidesToShow": 5, "slidesToScroll": 4}' class="center md: mx-auto w-[96%] mt-20">
-        <div>
-            <!-- stylizing the img with variable using Vue  -->
-            <img :class="imgFormat"
-                src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg">
-        </div>
-        <div>
-            <img :class="imgFormat"
-                src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg">
-        </div>
-        <div>
-            <img :class="imgFormat"
-                src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg">
-        </div>
-        <div>
-            <img :class="imgFormat"
-                src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg">
-        </div>
-        <div>
-            <img :class="imgFormat"
-                src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg">
-        </div>
-        <div>
-            <img :class="imgFormat"
-                src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg">
+    <div data-slick class="carousel md: mx-auto w-[97%] mt-20 mb-20">
+        <div v-for="product in products" :key="product.id">
+            <img :src="product.picture" :class="`${imgFormat} w-70 h-64 object-cover `"/>
         </div>
     </div>
 </template>
-
 
 <script>
 // imports for the carrousel
@@ -43,21 +18,21 @@ export default {
     data() {
         return {
             // IMG FORMAT
-            imgFormat: "group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl"
+            imgFormat: "border hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl",
+            products: []
         }
     },
     methods: {
         // THERE IS THE CARROUSEL JQUERY
         carousel() {
 
-            $('.center').slick({
-                centerMode: true,
+            $('.carousel').slick({
                 centerPadding: '60px',
-                slidesToShow: 3,
+                slidesToShow: 7,
                 infinite: true,
                 speed: 10000,
                 autoplay: true,
-                autoplaySpeed: 50,
+                autoplaySpeed: 100,
                 responsive: [
                     {
                         breakpoint: 768,
@@ -65,7 +40,7 @@ export default {
                             arrows: false,
                             centerMode: true,
                             centerPadding: '40px',
-                            slidesToShow: 3
+                            slidesToShow: 2
                         }
                     },
                     {
@@ -81,8 +56,22 @@ export default {
             });
         }
     },
-    mounted() {
-        this.carousel();
+    created() {
+        $.ajax({
+            url: 'https://nelsonrivera.es/Gameshop.php?action=getProducts',
+            method: 'GET',
+            dataType: 'json',
+            success: (data) => {
+                this.products = data;
+                console.log(data);
+                this.$nextTick(() => {
+                    this.carousel();
+                });
+            },
+            error: (error) => {
+                console.log(error)
+            }
+        })
     }
 }
 </script>

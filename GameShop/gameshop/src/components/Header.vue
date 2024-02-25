@@ -54,16 +54,20 @@
                         <ul
                             class="dropdown mt-10 min-w-60 bg-white shadow-md rounded-lg p-2 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700 hidden absolute">
                             <li><a href="#"
-                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700">category1</a>
+                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700">Action
+                                    Genre Games</a>
                             </li>
                             <li><a href="#"
-                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700">category2</a>
+                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700">Adventure
+                                    Genre Games</a>
                             </li>
                             <li><a href="#"
-                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700">category3</a>
+                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700">Horror
+                                    Genre Games</a>
                             </li>
                             <li><a href="#"
-                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700">category4</a>
+                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700">Puzzle
+                                    Genre Games</a>
                             </li>
                         </ul>
                     </div>
@@ -82,7 +86,7 @@
                         </svg>
                         <!-- sign in icon operation -->
                         <router-link to="/">
-                            <div @click="toggleLogin" href="#login">Log in</div>
+                            <div @click="toggleLogin" href="#login" v-show="loginText">Log in</div>
                         </router-link> <!-- listen to function -->
                     </a>
                     <!-- shopping cart -->
@@ -109,13 +113,15 @@
 
 <script>
 import $ from 'jquery';
-import { showLogin } from '@/store';
+import { loginText, showLogin } from '@/store';
 
 export default {
     components: {
     },
     data() {
         return {
+            loginText,
+            showLogin
         }
     },
     name: 'Header',

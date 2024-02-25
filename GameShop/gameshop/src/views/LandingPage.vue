@@ -2,6 +2,7 @@
     <Header />
     <CarrouselContainer />
     <LogInContainer/>
+    <MainContainer />
     <ItemsContainer />
     <NewGamesContainer />
     <AboutUsContainer />
@@ -12,6 +13,7 @@
 
 import Header from '@/components/Header.vue'
 import CarrouselContainer from '@/components/CarrouselContainer.vue'
+import MainContainer from '@/components/MainContainer.vue'
 import NewGamesContainer from '@/components/NewGamesContainer.vue'
 import ItemsContainer from '@/components/ItemsContainer.vue'
 import FooterContainer from '@/components/FooterContainer.vue'
@@ -23,6 +25,7 @@ export default {
     components: {
     Header,
     CarrouselContainer,
+    MainContainer,
     NewGamesContainer,
     ItemsContainer,
     AboutUsContainer,

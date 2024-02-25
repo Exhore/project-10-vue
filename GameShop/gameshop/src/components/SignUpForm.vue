@@ -19,8 +19,7 @@
                                 Become a member of this community.
                             </h1>
                             <p class="text-gray-600 dark:text-gray-400">
-                                We provide you with a test account that can be set up in seconds. Our main focus is getting
-                                responses to you as soon as we can.
+                                Sell, buy, and trade your games with other users. Get the best deals and discounts.
                             </p>
                         </div>
                         <!-- End Title -->
@@ -292,43 +291,6 @@ peer-[:not(:placeholder-shown)]:text-gray-500">Email</label>
             </div>
         </div>
     </router-view>
-
-    <!-- gaming images -->
-
-    <div class="max-w-[85rem] sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <!-- Grid -->
-        <div class="grid grid-cols-12 items-center gap-x-2 sm:gap-x-6 lg:gap-x-8">
-            <div class="hidden md:block col-span-4 md:col-span-3">
-                <img class="rounded-xl"
-                    src="https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1981&q=80"
-                    alt="Image Description">
-            </div>
-            <!-- End Col -->
-
-            <div class="col-span-4 md:col-span-3">
-                <img class="rounded-xl"
-                    src="https://images.unsplash.com/photo-1587613991119-fbbe8e90531d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1003&q=80"
-                    alt="Image Description">
-            </div>
-            <!-- End Col -->
-
-            <div class="col-span-4 md:col-span-3">
-                <img class="rounded-xl"
-                    src="https://images.unsplash.com/photo-1554295405-abb8fd54f153?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=652&q=80"
-                    alt="Image Description">
-            </div>
-            <!-- End Col -->
-
-            <div class="col-span-4 md:col-span-3">
-                <img class="rounded-xl"
-                    src="https://images.unsplash.com/photo-1640622300473-977435c38c04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80"
-                    alt="Image Description">
-            </div>
-            <!-- End Col -->
-        </div>
-        <!-- End Grid -->
-    </div>
-    <!-- End Features -->
     <FooterContainer class="mt-20" />
 </template>
 
